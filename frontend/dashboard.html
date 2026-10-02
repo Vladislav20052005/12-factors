@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts/consts.js" defer></script>
+    <script src="scripts/cards.js" defer></script>
+    <script src="scripts/redirections.js" defer></script>
+    <script src="scripts/modal.js" defer></script>
+    <script src="scripts/script_dashboard.js" defer></script>
+    <script src="scripts/ad_banner.js" defer></script>
+
+</head>
+<body>
+
+    <!-- Панель -->
+    <header class="fixed-header">
+        <div>
+            <div id="usernameText">имя</div>
+        </div>
+        <div>
+            <button onclick="redirectToLogin()">Выйти из аккаунта</button>
+            <button onclick="deleteUser()">Удалить аккаунт</button>
+        </div>
+        <div class="header-actions">
+            <button onclick="toggleModal(true)">Создать карточку</button>
+
+            <div class="copy-container">
+                <span id="tokenText"></span>
+                <button onclick="copyText()">Копировать</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Окно -->
+    <div class="modal-overlay" id="postModal" onclick="closeModalOnOverlay(event)">
+        <div class="modal-window">
+            <div class="modal-header">
+                <h3>Новая карточка</h3>
+                <button onclick="toggleModal(false)">&times;</button>
+            </div>
+            
+            <form id="createPostForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="textInput">Ссылка на страницу</label>
+                    <input type="url" id="textInput" placeholder="https://picsum.photos" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Изображение карточки</label>
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;" required onchange="updateFileName(this)">
+                    <label for="fileInput" class="file-upload-btn">Выбрать файл изображения</label>
+                    <span id="fileNameDisplay">Файл не выбран</span>
+                </div>
+
+                <button type="submit" class="submit-post-btn">Опубликовать карточку</button>
+            </form>
+        </div>
+    </div>
+
+        <div id="banner-holder"></div>
+
+    <!-- Карточки -->
+    <main class="content-container">
+        <div class="cards-grid" id="cards-container">
+        </div>
+    </main>
+
+</body>
+</html>

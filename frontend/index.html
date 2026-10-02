@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Вход</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts/consts.js" defer></script>
+    <script src="scripts/redirections.js" defer></script>
+    <script src="scripts/login.js" defer></script>
+</head>
+
+<body>
+
+    <main class="content-container">
+        <div class="modal-window">
+
+            <div class="modal-header">
+                <h3>Вход</h3>
+            </div>
+
+            <div>
+
+                <div class="form-group">
+                    <label for="username">Имя пользователя</label>
+                    <input
+                        type="text"
+                        id="username"
+                        class="form-input"
+                        placeholder="username"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input
+                        type="password"
+                        id="password"
+                        class="form-input"
+                        placeholder="password"
+                        required
+                    >
+                </div>
+
+                <button
+                    type="button"
+                    class="card-btn"
+                    onclick="login()"
+                    style="width: 100%; margin-top: 10px;"
+                >
+                    Войти
+                </button>
+
+                <button
+                    type="button"
+                    class="card-btn"
+                    onclick="signup()"
+                    style="width: 100%; margin-top: 10px;"
+                >
+                    Зарегистрироваться
+                </button>
+
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>
